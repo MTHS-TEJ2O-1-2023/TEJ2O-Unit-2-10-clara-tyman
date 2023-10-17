@@ -5,20 +5,20 @@
  * This program reads the light level then diplasys by lighting LED's on neopixels
 */
 
-let lightLevel: number
-lightLevel = input.lightLevel()
-let neopixelStrip: neopixel.Strip = null
+  let lightLevel: number
+  lightLevel = input.lightLevel()
+  let neopixelStrip: neopixel.Strip = null
 
-basic.clearScreen()
-basic.showIcon(IconNames.Happy)
+  basic.clearScreen()
+  basic.showIcon(IconNames.Happy)
 
-// cleanup
-neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
-neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
-neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
-neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
-neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
-neopixelStrip.show()
+  // cleanup
+  neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+  neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
+  neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
+  neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
+  neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
+  neopixelStrip.show()
 
 input.onButtonPressed(Button.A, function () {
   // get light level
@@ -31,11 +31,16 @@ input.onButtonPressed(Button.A, function () {
   neopixelStrip.show()
   }
   if (lightLevel > 104) {
+  neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Blue))
   neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Blue))
+  neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Blue))
   neopixelStrip.show()
   }
   if (lightLevel > 156) {
+  neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Blue))
+  neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Blue))
   neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Blue))
+  neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Blue))
   neopixelStrip.show()
   }
   if (lightLevel > 208) {
