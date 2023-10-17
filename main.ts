@@ -1,12 +1,11 @@
 /* Copyright (c) 2023 MTHS All rights reserved
  *
- * Created by: Clara 
+ * Created by: Clara
  * Created on: Oct 2023
  * This program reads the light level then diplasys by lighting LED's on neopixels
 */
 
 let lightLevel: number
-lightLevel = input.lightLevel()
 let neopixelStrip: neopixel.Strip = null
 
 basic.clearScreen()
@@ -22,6 +21,7 @@ neopixelStrip.show()
 
 input.onButtonPressed(Button.A, function () {
   // get light level
+  lightLevel = input.lightLevel()
   if (lightLevel <= 51) {
     neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
     neopixelStrip.show()
